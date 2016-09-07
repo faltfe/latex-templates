@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Die schnellste und kürzeste Einführung in LaTeX">
+    <meta name="keywords" content="LaTeX, Tutorial">
+    <meta name="author" content="Felix Faltin">
+    <title>LaTeX - Die minimalste Einführung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette" media="screen">
+    <link rel="stylesheet" href="/css/default.min.css" media="screen">
+    <script src="/js/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <script src="/js/custom.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <header>
+        <nav></nav>
+        <h1>LaTeX - Die minimalste Einführung</h1>
+        <p>
+            Ohne jedes drumherum und ohne Erklärungen, einfach kurz und knackig auf den Punkt gebracht.
+        </p>
+    </header>
+    <main>
+        <section class="blue">
+            <h2>Installation</h2>
+            <p>Installation einer TeX-Distibution</p>
+            <p>
+                <a href="http://miktex.org" target="_blank">MikTeX</a>
+                <a href="https://www.tug.org/texlive/" target="_blank">Texlive</a>
+                <a href="https://tug.org/mactex/" target="_blank">MacTeX</a>
+            </p>
+            <p>Installation eines Editors zur leichteren Bearbeitung</p>
+            <p>
+                <a href="" target="_blank">TexStudio</a>
+                <a href="" target="_blank">Texmaker</a>
+                <a href="" target="_blank">Irgendwas</a>
+            </p>
+        </section>
+        <section class="red">
+            <h2>Dokumentklasse</h2>
+            <p>
+                Beginn des Dokument mit Angabe der Dokumentklasse <br>
+                <code>\documentclass{}</code>
+            </p>
+            <p>
+                Inhalt hinzufügen <br>
+                <code>\begin{document}</code>
+            </p>
+            <p>Hier kann beliebiger Inhalt geschrieben werden</p>
+            <p>
+                Dokument beenden <br>
+                <code>\end{document}</code>
+            </p>
+        </section>
+        <section class="orange">
+            <h2>Die wichtigsten Pakete</h2>
+            <p>
+                <code>\usepackage[T1]{fontenc}</code>
+            </p>
+            <p>
+                Angabe der Formatierung <br>
+                <code>\usepackage[utf8]{inputenc}</code>
+            </p>
+            <p>
+                Angabe der verwendeten Sprache <br>
+                <code>\usepackage[ngerman]{babel}</code>
+            </p>
+        </section>
+        <section class="green">
+            <h2>Kapitel und Abschnitte</h2>
+            <p>
+                Starten eines Kapitel <br>
+                <code>\chapter{}</code></p>
+            <p>
+                Starten eines Kapitel mit optionaler Überschrift <br>
+                <code>\chapter[]{}</code></p>
+            <p>
+                Starten eines Abschnitt <br>
+                <code>\section{}</code></p>
+        </section>
+        <section class="brightGreen">
+            <h2>Bilder</h2>
+            <p>Umgebung beginnen <code>\begin{figure}</code></p>
+            <p>Bild zentrieren <code>\centering</code></p>
+            <p>Bild mit 80 % Seitenbreite einfügen <code>\includegraphics[width=.8\linewidth]{path/imagefile}</code></p>
+            <p>Bildunterschrift <code>\caption{Bildungterschrift}</code></p>
+            <p>Anker setzen <code>\label{fig:bild-verweis}</code></p>
+            <p>Gleitumgebung beenden <code> \end{figure}</code></p>
+        </section>
+        <section class="darkRed">
+            <h2>Tabellen</h2>
+            <p><code class="code-multiline">\begin{table}
+    \centering
+    \begin{tabular}{lcr}
+        links & mitte & rechts \\\hline
+        eins & zwei & drei
+    \end{tabular}
+    \caption{Tabellenunterschrift}
+    \label{tab:tabellen-verweis}
+\end{table}</code></p>
+        </section>
+        <section class="pink">
+            <h2>Verweise</h2>
+            <p>
+                Setzen eines Labels <br> <code>\label{}</code>
+            </p>
+            <p>
+                Verweis auf gesetztes Label <br> <code>\ref{}</code>
+            </p>
+        </section>
+        <section>
+            <h2>Formeln</h2>
+            <p>
+                <code>$c = \sqrt{a^2 + b^2}$</code>
+            </p>
+        </section>
+        <section class="violett">
+            <h2>Verzeichnisse</h2>
+            <p>
+                Inhaltsverzeichnis <br> <code>\tableofcontent</code></p>
+            <p>
+                Bilderverzeichnis <br> <code>\listoffigures</code></p>
+            <p>
+                Tabellenverzeichnis <br> <code>\listoftables</code></p>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li>Impressum</li>
+            <li>Datenschutz</li>
+            <li>Kontakt</li>
+        </ul>
+    </footer>
+</body>
+
+</html>
