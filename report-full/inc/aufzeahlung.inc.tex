@@ -1,0 +1,54 @@
+% ---------------------------
+% Einfache Aufzählungen
+% ---------------------------
+% Aufzählungen können mit 
+% 	- \begin{itemize} 	-> unsortierte Liste
+%	- \begin{enumerate}	-> sortiere Liste (nummeriert)
+% ---------------------------
+
+\chapter{Aufzählungen}
+
+	% ---------------------------
+	% Unsortierte Liste
+	% ---------------------------
+	\begin{itemize}								% Umgebung itemize (Auflistung)
+		\item Beispiel							% Stichpunkt hinzufügen
+		\item Example
+		\item Hallo Welt
+	\end{itemize}								% Umgebung beenden
+	
+	% ---------------------------
+	% Sortierte Liste
+	% ---------------------------
+	\begin{enumerate}							% Umgebung enumerate (Aufzählung)
+		\item Ich bin erstens					% Stichpunkt hinzufügen
+		\item Nach dir kommt zweitens	
+		\item Aller guten Dinge sind drei
+	\end{enumerate}								% Umgebung beenden
+	
+	% ---------------------------
+	% Kombiniert und verschachtelt
+	% Die Umgebungen können beliebig kombiniert
+	% und verschachtelt werden
+	% ---------------------------
+	\begin{enumerate}
+		\item Personen
+		\begin{itemize}
+			\item Minion
+			\item Dinos
+			\item Nessi
+		\end{itemize}
+		\item Gebäude
+		\begin{enumerate}
+			\item Wohnungen
+			\begin{itemize}
+				\item Haus
+				\item Modell
+			\end{itemize}
+			\item Schlafen
+			\begin{itemize}
+				\item Bett
+				\item Hotel
+			\end{itemize}
+		\end{enumerate}
+	\end{enumerate}

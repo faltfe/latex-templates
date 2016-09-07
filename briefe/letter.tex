@@ -1,0 +1,76 @@
+% !TeX encoding     = utf8
+% !TeX program      = pdflatex
+% !TeX spellcheck   = de-DE
+
+% ---------------------------
+% Template: letter
+% Author:   Felix Faltin
+% Version:  1.0
+% Email:    felix@clickandtry.de
+% ---------------------------
+% Erstellung eines einfachen Briefs ohne jegliche Einstellungen.
+% Die Klasse letter berücksichtigt nicht die deutsche Formiertierung 
+% von Briefe, sodass der Empfänger nicht zwingend an der richtigen
+% Position steht. Die Klasse scrlttr2 ist vorzugsweise zu verwenden.
+% ---------------------------
+
+% ---------------------------
+% Dokumentklasse
+% ---------------------------
+\documentclass[12pt,a4paper]{letter}
+
+% ---------------------------
+% Einbinden von Packages
+% ---------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% ---------------------------
+% Fakulative Packages
+% ---------------------------
+\usepackage{blindtext}
+
+% ---------------------------
+% Absender
+% ---------------------------
+
+% --- Adresse ---
+\address{%
+    Max Mustermann\\
+    Musterstraße 1\\
+    01234 Hanshausen}
+   
+% --- Signatur --- 
+\signature{Max Mustermann} 
+
+\begin{document} 
+    \begin{letter}{%
+            % --- Empfänger ---
+            Maxi Musterfrau\\
+            Musterweg xx\\
+            01234 Mustersonderhausen
+        } 
+        
+        % --- Ansprache ---
+        \opening{Sehr geehrte Damen und Herren,} 
+
+         % --- Inhalt ---
+        \blindtext
+     
+        % --- Grußformel
+        \closing{Mit freundlichen Grüßen}
+        
+        % --- Postskriptum ---
+        %\ps{adding a postscript}
+
+        % --- Anlage(n) ---
+        \encl{%
+            Hauseigene Briefformate\\
+            Hinweise zu firmenspezifischen Anpassungen
+        }
+        
+        % --- Verteiler ---
+        %\cc{Cclist} 
+    \end{letter} 
+\end{document}

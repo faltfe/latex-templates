@@ -1,0 +1,95 @@
+\chapter{Tabellen}
+		
+	\section{Einfache Tabellen ohne Pakete}
+		% ---------------------------
+		% Einfache Tabellen darstellen
+		% ---------------------------
+		% Spaltenangabe durch
+		%   l 		- links
+		%   c 		- zentriert
+		%   r 		- rechts
+		%   p{2cm} 	- Paragraph mit fester Breite
+		%
+		% Spaltenbegrenzung mittels der Pipe: 	|
+		% Spaltentrenner druch:					&
+		% Neue Zeile:							\\
+		% Horizontale Linie						\hline
+		% ---------------------------
+	
+		\begin{tabular}{l|c|r}
+			linke Spalte & mittlere Spalte & rechte Spalte \\\hline
+			1            &        2        &             3 \\
+			aaa          &       bbb       &           ccc
+		\end{tabular}
+		\captionof{table}{Tabelle ohne Gleitumgebung}
+		
+	\section{Tabelle mit Gleitumgebung}
+		% ---------------------------
+		% Tabelle in Gleitumgebung
+		% ---------------------------
+		% Tabelle wird in Gleitumgebung zur automatischen Positionierung eingebunden
+		% Angabe der Postion (optional):
+		% 	h - hier
+		%   t - top
+		%	b - bottom
+		% 
+		% Tabelle wird zentriert und mit Tabellenunterschrift dargestellt
+		% Verweis auf Tabelle durch \label{beliebiger Name} und \ref{Name wir bei label}
+		% ---------------------------
+		
+		\begin{table}[htb]													% Gleitumgebung für Tabellen
+			\centering															% Tabelle zentrieren
+			\begin{tabular}{l|c|r}												% Tabelle erstellen
+				linke Spalte & mittlere Spalte & rechte Spalte \\\hline
+				1            &        2        &             3 \\
+				aaa          &       bbb       &           ccc
+			\end{tabular}
+			\caption{Ich bin eine Tabelle, die im Tabellenverzeichnis steht}	% Tabellenunterschrift erzeugen
+			\label{tab:table}													% Verweis erstellen
+		\end{table}
+		
+	\section{Tabellen mit \texttt{tabularx}}
+		% ---------------------------
+		% Schöne Tabellen erstellen
+		% ---------------------------
+		% Verwendung von \usepackage{tabularx} und \usepackage{booktabs}
+		% Neue Umgebung \begin{tabularx}{width}{cols}
+		% Breite der Tabelle kann angepasst werden
+		% Horizontale Linien sehen besser aus
+		% Neuer Spaltentyp X - automatische Breite
+		% ---------------------------
+		
+		\begin{table}[htb]
+			\centering
+			\begin{tabularx}{\linewidth}{lXr}
+				\toprule
+				Linke Spalte & Mittlere Spalte & Rechte Spalte \\ \midrule
+				1            & 2               & 3             \\
+				aaa          & bbb             & ccc           \\ \bottomrule
+			\end{tabularx}
+			\caption{Tabelle mit tabularx}
+		\end{table}
+	
+	% ---------------------------
+	% Komplexe Tabellen erstellen
+	% ---------------------------
+	% Zusammenfassen von Zellen (horizontal) mittels \multicolumn{cols}{pos}{text}
+	% Zusammenfassen von Zellen (vertical) mittels \multirow{number of rows}{*}{text}
+	% (Package multirow notwendig!)
+	% Verfeinerung der Darstellung
+	% ---------------------------
+	
+	\section{Komplexe Tabellen}
+		\begin{table}[htb]
+			\centering
+			\caption{Ich bin eine Tabellenüberschrift}
+			\begin{tabularx}{.8\linewidth}{@{}>{\centering}XXX@{}}
+				\toprule
+				\multicolumn{3}{c}{Überschrift}\\\midrule
+				$\sin$ & $\cos$ & Fake\\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(l){3-3}
+				\multirow{3}{*}{Irgendwas} & was auch immer & $\pi$\\
+				& was auch immer & $\pi$\\
+				& was auch immer & $\pi$\\\bottomrule
+			\end{tabularx}
+			\label{tab:tabularx}
+		\end{table}

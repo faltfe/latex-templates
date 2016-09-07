@@ -1,0 +1,149 @@
+% !TeX encoding     = utf8
+% !TeX program      = pdflatex
+% !TeX spellcheck   = de-DE
+
+% ---------------------------
+% Template: scrlttr2
+% Author:   Felix Faltin
+% Version:  1.0
+% Email:    felix@clickandtry.de
+% ---------------------------
+% Vollständige Referenz siehe scrguide
+% ---------------------------
+
+% ---------------------------
+% Dokumentklasse
+% ---------------------------
+\documentclass[
+    a4paper,
+    parskip          = half,            % Größe des Absatzes
+    fontsize         = 12pt,            % Schriftgröße
+    foldmarks        = true,            % Falzmarken einfügen
+    fromalign        = right,           % Absender rechts positionieren
+    fromrule         = afteraddress,    % Linie nach Absender
+    fromphone,                          % Telefonnummer anzeigen
+    fromemail,                          % Email anzeigen
+    fromlogo,                           % Logo
+    firstfoot        = off,             % Fußzeile auf erste Seite
+    enlargefirstpage = on,              % Erste Seite größer
+    version          = last
+]{scrlttr2}
+
+% ---------------------------
+% Einbinden von Packages
+% ---------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}             % Neue deutsche Rechtschreibung
+\usepackage{lmodern}                    % Schriftart Latin Modern
+
+% ---------------------------
+% Fakulative Packages
+% ---------------------------
+% Zum Aktivieren Kommentar entfernen
+% ---------------------------
+\usepackage{graphicx}                  % Grafiken einfügen (Signatur, Logo)
+\usepackage[
+    top     = 1cm,
+    left    = 3cm,
+    right   = 2cm,
+    bottom  = 3cm
+]{geometry}                             % Seitenränder ändern
+\usepackage{marvosym}                   % Zeichen für Telefon und Mail
+\usepackage{xcolor}                     % Farben definieren
+\usepackage{blindtext}                  % Blindtext zur Verfügung stellen
+
+
+% ---------------------------
+% Einstellungen von Optionen
+% ---------------------------
+\LoadLetterOption{DIN}                  % Einstellungen für DIN 676 laden
+
+% --- Farben definieren ---
+\definecolor{mygray}{gray}{.50}         % Definiert die Farbe gray für den Kopf
+
+% --- Absender ---
+\setkomavar{fromname}{Max Mustermann}
+\setkomavar{fromaddress}{Musterstraße 1\\ 13456 Musterstadt}
+\setkomavar{fromphone}[\Telefon~]{+49 123 456 78}
+\setkomavar{fromemail}[\Letter~]{max@mustermann.com}
+\setkomavar{signature}{%
+    \includegraphics[width=4cm]{example-image-a}\\  % Digitale Signatur kann verwendet werden
+    \usekomavar{fromname}                           % Name des Absenders
+}
+%\setkomavar{fromurl}{www.muster.de}
+\setkomavar{fromlogo}{%
+    \includegraphics[width=2cm]{example-image-golden}
+}
+
+% --- Geschäftszeichenzeile ---
+\setkomavar{yourref}{}                  % Ihr Zeichen
+\setkomavar{yourmail}{}                 % Ihr Schreiben vom
+\setkomavar{myref}{}                    % Unser Zeichen
+\setkomavar{customer}{}                 % Kundennummer
+\setkomavar{invoice}{}                  % Rechnungsnummer
+\setkomavar{place}{Musterstadt}         % Ort
+\setkomavar{date}{\today}               % Datum
+
+% --- Titel und Betreff ---
+%\setkomavar{title}{Mahnung}
+%\setkomavar{subject}{Das ist mein Betreff}
+
+% --- Umbenennung von Variablen ---
+%\setkomavar*{enclseparator}{Anlage}
+%\setkomavar*{ccseparator}{Kopie an}
+
+
+% ---------------------------
+% Allgemeine Einstellungen
+% ---------------------------
+
+% --- Farben anpassen ---
+\setkomafont{fromname}{\color{mygray}\bfseries\sffamily}
+\setkomafont{fromaddress}{\color{mygray}\itshape\sffamily}
+
+% --- Verschiebung des Namens der Unterschrift
+\makeatletter
+    \@setplength{sigbeforevskip}{.5cm}
+\makeatother
+
+% --- Unterschrift rechtsbündig
+\renewcommand*{\raggedsignature}{\raggedright}
+
+
+% ---------------------------
+% Beginn des Dokuments
+% ---------------------------
+\begin{document}
+   	\begin{letter}{%
+            % --- Empfänger ---
+            Erika Musterfrau\\
+            Musterweg 43\\
+            56789 Musterhausen%
+        }
+        
+        % --- Begrüßungszeile ---
+        \opening{Sehr geehrte Frau Musterfrau,}
+        
+        % --- Hinzufügen des eigentlichen Inhalts ---
+        \blindtext
+        
+        % --- Grüßformel ---
+        \closing{Mit freundlichen Grüßen}
+        
+        % --- Postskriptum ---
+%        \ps PS: \dots
+
+        % --- Anlage(n) ---
+%        \encl{%
+%           Anlage 1\\
+%           Anlage 2%
+%        }
+
+        % --- Verteiler ---
+%        \cc{%
+%           Verteiler 1\\
+%           Verteiler 2%
+%        }
+    \end{letter}
+\end{document}

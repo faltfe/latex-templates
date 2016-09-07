@@ -1,0 +1,120 @@
+% !TeX encoding = utf8
+% !TeX program = pdflatex
+% !TeX spellcheck = de-DE
+
+% ---------------------------
+% Template: g-brief2
+% Author:   Felix Faltin
+% Email:    felix@clickandtry.de
+% Version:  1.0
+% Date:     23.04.2016
+% ---------------------------
+% http://ftp.fau.de/ctan/macros/latex/contrib/g-brief/g-brief.pdf
+% ---------------------------
+\documentclass{g-brief2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{blindtext}
+\usepackage{lmodern}
+
+% ---------------------------
+% Name im Briefkopf
+% ---------------------------
+\Name{Max Mustermann}
+
+% ---------------------------
+% Angaben des Absender
+% ---------------------------
+% Angaben können von A bis G gestaltet werden
+% ---------------------------
+\NameZeileA{Max Mustermann}
+% ---------------------------
+% Angaben können von A bis F gestaltet werden
+% ---------------------------
+\AdressZeileA{Musterstraße 1}
+\AdressZeileB{Raum 10.1}
+\AdressZeileC{13456 Musterstadt}
+\AdressZeileD{Deutschland}
+
+% ---------------------------
+% Angaben können von A bis F gestaltet werden
+% ---------------------------
+\TelefonZeileA{+49 123 456 78}
+\TelefonZeileB{+49 123 456 79}
+% ---------------------------
+% Angaben können von A bis F gestaltet werden
+% ---------------------------
+\InternetZeileA{max@mustermann.com}
+\InternetZeileB{http://www.mustermann.com}
+
+% ---------------------------
+% Retouradresse
+% ---------------------------
+% Retouradresse steht über dem Empfänger
+% leer lassen, wenn mit Adresse identisch
+% ---------------------------
+\RetourAdresse{Max Mustermann, Postfach 54321, 12346 Musterstadt}
+
+% ---------------------------
+% Kontoverbindung
+% ---------------------------
+% Angaben können von A bis F gestaltet werden
+% ---------------------------
+\BankZeileA{Musterbank Max}
+\BankZeileB{Bankleitzahl: 10020030}
+\BankZeileC{Kontonummer: 1020304050}
+
+% ---------------------------
+% Angaben des Empfängers
+% ---------------------------
+\Postvermerk{EINSCHREIBEN}
+\Adresse{%
+    Mickey Mouse\\
+    Donaldweg\\
+    98765 Entenhausen
+}
+%\Datum{10. Mai 2025}       % fehlt \Datum, wird \today genommen
+
+% ---------------------------
+% Geschäftszeile
+% ---------------------------
+% Geschäftszeile wird nur gesetzt,
+% wenn \IhrZeichen, \IhrSchreiben oder
+% \MeinZeichen angegeben ist
+% ---------------------------
+\IhrZeichen{Mu/5.23}
+\IhrSchreiben{29. Dezember 1803}
+\MeinZeichen{Mm/9.42}
+
+% ---------------------------
+% Angabe von Markierungen
+% ---------------------------
+%\unserzeichen          % Statt "Mein Zeichen" steht "Unser Zeichen" in der Geschäftszeile
+\trennlinien            % Trennlinien nach dem Kopf, vor dem Fuß und unter der Retouradresse setzen
+\lochermarke            % Lochermarken setzen
+\faltmarken             % Faltmarken setzen
+\fenstermarken          % Fenstermarken setzen
+
+% ---------------------------
+% Formelle Angaben
+% ---------------------------
+\Betreff{Beispiel-Brief}
+\Anrede{Sehr geehrte Frau Musterfrau,}
+\Gruss{Mit freundlichen Grüßen}{0cm} % Zweiter Parameter gibt den Einschub der Grußformel an
+\Unterschrift{Max Mustermann}
+
+% ---------------------------
+% Anlage und Verteiler
+% ---------------------------
+\Anlagen{Anlage:\\ Gar nichts}
+\Verteiler{Verteiler:\\Moritz\\Elke\\Marie}
+
+% ---------------------------
+% Inhalt des Briefes
+% ---------------------------
+\begin{document}
+    \begin{g-brief}
+        \blindtext
+    \end{g-brief}
+\end{document}

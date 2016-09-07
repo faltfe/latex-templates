@@ -1,0 +1,126 @@
+% !TeX encoding     = utf8
+% !TeX program      = pdflatex
+% !TeX spellcheck   = de-DE
+    
+% ---------------------------
+% Template: Report
+% Author:   Felix Faltin
+% Version:  1.0
+% Email:    felix@clickandtry.de
+% ---------------------------
+
+% ---------------------------
+% Dokumentklasse
+% ---------------------------
+
+\documentclass[
+    12pt,                                       % Schriftgröße
+    a4paper,                                    % Papiergröße
+    parskip     = half                          % Definiert Absätze
+]{scrreprt}                                     % Komascript (vorzugsweise zu verwenden)
+
+% ---------------------------
+% Einbinden von Packages
+% ---------------------------
+
+% --- Kodierung, Sprache ---
+\usepackage[utf8]{inputenc}                     % Kodierung des Dokuments
+\usepackage[T1]{fontenc}                        % Schriftzeichen, Umlaute, Silbentrennung
+\usepackage[ngerman]{babel}                     % Neue deutsche Rechtschreibung
+
+% --- Schrift ---
+\usepackage{lmodern}                            % Moderne Schriftart
+
+% ---------------------------
+% Fakulative Packages
+% ---------------------------
+
+% --- Tabellen ---
+\usepackage{tabularx}                           % Verwendung der Tabularx-Umgebung für Tabellen
+\usepackage{booktabs}                           % Übersichtlichere Darstellung von Tabellen
+%\usepackage{multirow}                          % Zusammenfassen von Tabellenreihen (vertical)
+
+
+% --- Grafiken ---
+\usepackage{graphicx}                           % Einbinden von Bildern
+
+
+% --- Formatierungen und Design ---
+\usepackage{setspace}                           % Ein-, anderhalb- oder zweizeilig
+%\usepackage[
+%    top     = 3cm,                             % Seitenabstand oben
+%    right   = 1.5cm,                           % Seitenabstand recht
+%    bottom  = 3cm,                             % Seitenabstand unten
+%    left    = 1.5cm,                           % Seitenabstand links
+%    includeheadfoot
+%]{geometry}
+
+% --- Mathematik ---
+\usepackage{amsmath}                            % Erweiterung des Mathemodus
+
+
+% --- PDF ---
+%\usepackage{pdfpages}                          % PDF Seiten einbinden
+
+
+% --- Zusatzpakete ---
+\usepackage{blindtext}                          % Ermöglichst Benutzung von Blindtext
+
+
+% --- Verweise ---
+\usepackage{hyperref}                           % Ermöglicht Verlinkungen [Immer als letztes!]
+
+
+% ---------------------------
+% Einstellungen von Optionen
+% ---------------------------
+
+% --- hyperref ---
+\hypersetup{
+    pdftitle            = {Titel},              % Name des Dokuments
+    pdfsubject          = {Einführung},         % Thema der Dokuments
+    pdfauthor           = {Felix},              % Autor
+%   pdfkeywords         = {},
+%   pdfcreator          = {},
+%   pdfproducer         = {},
+}
+
+
+% ---------------------------
+% Allgemeine Einstellungen
+% ---------------------------
+
+% --- Angabe des Speicherorts von Bildern ---
+\graphicspath{{img/}}                           % Nur in Verbindung mit graphicx!
+
+% --- Zeilenabstand ---
+\onehalfspacing                                 % \singlespacing, \onehalfspacing, \doublespacing (Nur mit setspaces!)
+
+
+% ---------------------------
+% Beginn des Dokuments
+% ---------------------------
+\begin{document}
+    % ---------------------------
+    % Einbinden eines Titelblattes
+    % ---------------------------
+    \title{Minimalbeispiel}                     % Titel der Arbeit
+    \author{Felix Faltin}                       % Autor
+    \date{\today}                               % Datum
+
+
+    % ---------------------------
+    % Erzeugen von Verzeichnissen
+    % ---------------------------
+    \maketitle                                  % Titelseite erzeugen
+    \tableofcontents                            % Inhaltsverzeichnis
+    \listoffigures                              % Bilderverzeichnis
+    \listoftables                               % Tabellenverzeichnis
+
+
+    % ---------------------------
+    % Inhalt einfügen
+    % ---------------------------
+    \Blinddocument
+
+\end{document}

@@ -1,0 +1,318 @@
+% !TeX encoding     = utf8
+% !TeX program      = pdflatex
+% !TeX spellcheck   = de-DE
+% !BIB = biber
+
+% ---------------------------
+% Template: Report
+% Author:   Felix Faltin
+% Version:  1.1.2
+% Email:    felix@clickandtry.de
+% ---------------------------
+
+\RequirePackage[l2tabu, orthodox]{nag}          % Sucht nach Fehlern und gibt Warnung aus (.log)
+%\RequirePackage{fixltx2e}                      % Nicht mehr notwendig
+
+% ---------------------------
+% Dokumentklasse
+% ---------------------------
+% Mögliche Optionen:
+%   - parskip = half; full, none
+%   - Schriftgröße (11pt [default], 12pt)
+%   - Papiergröße (a4paper [default], a5paper)
+%   - zweiseitig (twoside, oneside [default])
+% ---------------------------
+
+\documentclass[
+    12pt,                                       % Schriftgröße
+    a4paper,                                    % Papiergröße
+    parskip = half,                             % Definiert Absätze
+    twoside,                                    % Zweiseitiger Druck
+    listof  = totoc,                            % Bilder- und Tab.-verzeichnis im Inhalsverzeichnis
+    bibliography = totoc,                       % Quellenverzeichnis im Inhaltszeichnis
+    version = last                              % Version
+]{scrreprt}                                     % Komascript (vorzugsweise zu verwenden)
+
+% ---------------------------
+% Einbinden von Packages
+% ---------------------------
+% Wichtiger Hinweis für die Kodierung:
+%     Inputenc gibt die Kodierung des Dokoments an,
+%     die muss mit der Kodierung der Datei übereinstimmen.
+%
+% Mögliche Einstellungen:
+%    Editor       |    inputenc
+%    -------------|------------
+%    UTF-8        |    utf8        (vorzugsweise verwenden)
+%    ISO-8859-1   |    ansinew
+%    windows-1252 |    ansinew
+%    Apple        |    applemac    (von mir nicht geprüft)
+%    Linux        |    latin1
+% ---------------------------
+
+% --- Kodierung, Sprache ---
+\usepackage[utf8]{inputenc}                     % Kodierung des Dokuments
+\usepackage[T1]{fontenc}                        % Schriftzeichen, Umlaute, Silbentrennung
+\usepackage[ngerman]{babel}                     % Neue deutsche Rechtschreibung
+
+% --- Schrift ---
+\usepackage{lmodern}                            % Moderne Schriftart
+\usepackage{microtype}                          % Randausgleich und Neuberechnung der Lücken
+
+% ---------------------------
+% Fakulative Packages
+% ---------------------------
+% Zum Aktivieren Kommentar entfernen
+%
+%        ---WICHTIG---
+% Reihenfolge von einigen Pakete muss beachtet werden,
+% da es ansonsten zu "Option clash" kommen kann!
+% ---------------------------
+
+% --- Hacks ---
+\usepackage{scrhack}                            % Hacks für setspaces, float, hyperref und listings
+
+% --- Tabellen ---
+\usepackage{tabularx}                           % Verwendung der Tabularx-Umgebung für Tabellen
+\usepackage{booktabs}                           % Übersichtlichere Darstellung von Tabellen
+\usepackage{multirow}                           % Zusammenfassen von Tabellenreihen (vertical)
+
+% --- Grafiken ---
+\usepackage{tikz}                               % Erstellen von eigenen Grafiken
+%\usepackage{float}                             % U.a neue Option H für figure und table
+
+% --- Formatierungen und Design ---
+\usepackage{setspace}                           % Ein-, anderhalb- oder zweizeilig
+\usepackage[
+    % --- Linienart ---                         % Einstellung von Dicke und Breite
+%    headtopline,                               % durch name = Dicke:Breite
+%    plainheadtopline,
+    headsepline,
+%    plainheadsepline,
+    footsepline,
+    plainfootsepline,
+%    footbotline,
+%    plainfootbotline,
+%    ilines,
+    clines,
+%    olines,
+    automark,
+%    autooneside = false,                       % ignore optional argument in automark at oneside
+]{scrlayer-scrpage}                             % Kopf- und Fußzeile
+\usepackage[
+    top           = 3cm,                        % Seitenabstand oben
+    right         = 2.5cm,                      % Seitenabstand recht
+    bottom        = 3cm,                        % Seitenabstand unten
+    left          = 2.5cm,                      % Seitenabstand links
+    bindingoffset = 1cm,                        % Bindekorrektur
+    includeheadfoot
+]{geometry}
+%\usepackage[
+%    table,
+%    dvipsnames                                  % Vordefinierte Farben
+%]{xcolor}                                       % Farbige Darstellungen (von tikz geladen)
+%\usepackage{caption}                           % Bilder- u. Tabellenbeschriftung
+
+% --- Mathematik ---
+%\usepackage{cancel}                            % Durchstreichen von Gleichungen
+\usepackage{siunitx}                            % Darstellung von Maßzahlen und Maßeinheiten
+\usepackage[
+    intlimits,                                  % Grenzen Integral
+%    %leqno,                                     % Nummerierung links
+%    %reqno,                                     % Nummerierung rechts [default]
+%    %fleqn                                      % Formel linksbündig mit festem Abstand
+]{amsmath}                                      % Erweiterung des Mathemodus
+\usepackage[
+    all,
+    warning,
+%    error                                      % Kompilieren von pdfLaTeX kann abgebrochen werden
+]{onlyamsmath}                                  % Anzeigen von Fehlern bei Verwendung von amsmath
+\usepackage[
+    fixamsmath,                                % [default]
+    disallowspaces                             % Fehlerbehebung
+]{mathtools}                                   % Erweitung zu amsmath
+
+% --- PDF ---
+%\usepackage{epstopdf}                          % Konvertiert .eps zu .pdf on-the-fly (graphicx notwendig!)
+%\usepackage{pdfpages}                          % PDF Seiten einbinden
+
+% --- Quellenangabe
+\usepackage[autostyle]{csquotes}                % Anführungszeichen für deutsche Sprache und Quellenverzeichnis
+\usepackage[
+    backend      = biber,                       % bibtex oder biber [default]
+    style        = numeric-comp,                % Zitierstil
+    sorting      = nty,                         % Sortierung (Name, Titel, Jahr)
+    natbib       = true,                        % Kompatibilität mit Natbib-Bibliothek
+    block        = space,                       % kleiner horizontaler Platz zwischen den Feldern
+    backrefstyle = three+,                      % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+    date         = short,                       % Datumsformat
+    bibwarn      = true,                        %
+    texencoding  = auto,                        % auto-detect the input encoding
+    bibencoding  = auto                         % (auto (equal to tex), <encoding>)
+]{biblatex}
+%\usepackage[
+%    square,
+%    numbers
+%]{natbib}                                      % Zitierstile (NUR für bibtex!)
+
+% --- Zusatzpakete ---
+\usepackage{blindtext}                          % Ermöglichst Benutzung von Blindtext
+
+% --- Verweise ---
+\usepackage[hidelinks]{hyperref}                % Ermöglicht Verlinkungen [Immer als letztes!], als alternative Option kann "colorlinks" geladen werden
+\usepackage[
+    ngerman,
+    noabbrev,
+    nameinlink
+]{cleveref}                                     % Erweitert Angabe von Referenzen
+
+% ---------------------------
+% Einstellungen von Optionen
+% ---------------------------
+
+% --- mathtools ---
+%\mathtoolsset{showonlyrefs}                    % Nummierung von Gleichungen nur, wenn diese einen Verweis besitzen
+
+% --- siunitx ---
+\sisetup{
+%    mode = math, % text is printed using a math font
+    detect-all,
+    separate-uncertainty  = true,               % Plus-Minus-Zeichen für Fehler
+    exponent-product      = \cdot,              % Malzeichen für Exponent
+    number-unit-separator = \text{\,},          % Komma als Dezimalzeichen statt Punkt
+    output-decimal-marker = {\text{,}},
+    per-mode              = fraction            % Darstellung von Brüchen
+}
+
+% --- caption ---
+%\captionsetup{}
+
+% --- scrlayer-scrpage ---
+%\pagestyle{scrheadings}
+\clearpairofpagestyles                          % Leeren von Kopf- und Fußzeile
+
+%\ohead{\pagemark}                              % Kopfzeile außen: Seitenzahl
+\ihead{\headmark}                               % Kopfzeile innen: chapter und section Titel
+\cfoot[-~\pagemark~-]{-~\pagemark~-}            % Fußzeile mitte: Seitenzahl
+\automark[section]{chapter}
+%\setkomafont{pageheadfoot}{}                   % Änderung von Kopf- und Fußzeile
+%\setkomafont{pagenumber}{}
+%\setkomafont{headsepline}{\color{red}}
+
+% --- hyperref ---
+\hypersetup{
+    pdftitle           = {Titel},               % Name des Dokuments
+    pdfsubject         = {Einführung},          % Thema der Dokuments
+    pdfauthor          = {Felix},               % Autor
+%    pdfkeywords       = {},
+%    pdfcreator        = {},
+%    pdfproducer       = {},
+    pdftoolbar         = true,
+    pdfmenubar         = false,
+%    bookmarks         = true,
+    bookmarksopen      = false,                 % bookmarksopen ODER bookmarksopenlevel!
+%    bookmarksopenlevel = section,
+}
+
+% ---------------------------
+\KOMAoptions{
+%    headlines = 2                              % Für mehrzeilige Überschriften
+%    headinclude,                               % Überschrift in Satzspiegel berücksichtigen
+%    BCOR = 1cm,                                % Bindekorrektur
+%    DIV = calc                                 % Satzspiegel neuberechnen
+}
+
+% ---------------------------
+% Allgemeine Einstellungen
+% ---------------------------
+
+% --- Kopf- und Fußzeile ---
+% Nur ohne scrlayer-scrpages!
+%\pagestyle{headings}                                       % Möglichkeiten: plain, headings, empty
+%\addtokomafont{pageheadfoot}{\linespread{1}\selectfont}    % Einzeilige Kopf- und Fußzeile
+
+% --- Stil der Seitenzahlen ----
+\pagenumbering{Roman}                           % Möglichkeiten: arabic [default], Roman, Alpha, gobble (keine Nummerierung)
+
+% --- Angabe des Speicherorts von Bildern ---
+\graphicspath{{img/}}                           % Nur in Verbindung mit graphicx!
+% \graphicspath{{folder/subfolder/},{folder2/}}
+
+% --- Zeilenabstand ---
+\onehalfspacing                                 % \singlespacing, \onehalfspacing, \doublespacing (Nur mit setspaces!)
+
+% ---------------------------
+% Quellenverzeichnis
+% ---------------------------
+\addbibresource{./bib/referenzen.bib}           % BiBLaTeX, biber (Konfiguration im TeXstudio beachten)
+%\bibliography{bib/referenzen}                  % Veraltet (bibtex)
+
+% ---------------------------
+% Beginn des Dokuments
+% ---------------------------
+
+\begin{document}
+
+    % ---------------------------
+    % Einbinden eines Titelblattes
+    % (Standardformatierung)
+    % ---------------------------
+
+    \title{Bausteine \LaTeX}                    % Titel der Arbeit
+    \subtitle{Zusammenfassung von Elementen}    % Untertitel
+    \author{Felix Faltin}                       % Autor
+    \publishers{Click'n Try}                    % Herausgeber
+    \date{\today}                               % Datum
+    %    \extratitle{Ich bin eine Schutzseite}  % Schutztitel
+    %    \dedication{Ich bin der Beste}         % Widmung
+
+    % ---------------------------
+    % Erzeugen von Verzeichnissen
+    % ---------------------------
+    \maketitle                                  % Titelseite erzeugen
+    \tableofcontents                            % Inhaltsverzeichnis
+    \listoffigures                              % Bilderverzeichnis
+    \listoftables                               % Tabellenverzeichnis
+
+    % --- Umschalten der Nummerierung ---
+    \cleardoublepage
+    \pagenumbering{arabic}
+
+    % ---------------------------
+    % Kapitel und Abschnitte
+    % ---------------------------
+    \include{./inc/abschnitte.inc}
+
+    % ---------------------------
+    % Verweise einfügen
+    % ---------------------------
+    \include{./inc/verweise.inc}
+
+    % ---------------------------
+    % Aufzählungen einfügen
+    % ---------------------------
+    \include{./inc/aufzeahlung.inc}
+
+    % ---------------------------
+    % Bilder einfügen
+    % ---------------------------
+    \include{./inc/bilder.inc}
+
+    % ---------------------------
+    % Tabellen einfügen
+    % ---------------------------
+    \include{./inc/tabellen.inc}
+
+    % ---------------------------
+    % Mathematische Formeln
+    % ---------------------------
+    \include{./inc/mathe.inc}
+
+    % ---------------------------
+    % Quellenverzeichnis
+    % ---------------------------
+%    \bibliographystyle{abbrvnat}
+%    \bibliography{./bib/referenzen}                % BibTeX
+
+    \printbibliography[title=Literaturverzeichnis]  % BiBLaTeX, Biber
+\end{document}

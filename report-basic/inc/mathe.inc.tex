@@ -1,0 +1,73 @@
+% ---------------------------
+% Darstellung von Formeln
+% ---------------------------
+% math 			-> inline Mathemodus
+% displaymath 	-> Mathemodus mit einzelner Zeile
+% equation 		-> Mathemodus mit einzelner Zeile und Nummerierung
+% ---------------------------
+\chapter{Mathematische Formeln}
+	
+	\section{Formeln}
+		\SI{2,4e4}{\gram \per \mole}
+	
+	\section{Einfache Formeln}
+		% ---------------------------
+		% Einfacher Mathemodus inline
+		% ---------------------------
+		\begin{math}
+			A = \dfrac{\pi}{4}\,d^2
+		\end{math}
+		\newline
+		% ---------------------------
+		% Kurzschreibweise von math
+		% Beachte l2tabu
+		% ftp://ftp.dante.de/tex-archive/info/german/l2tabu/l2tabu.pdf
+		% ---------------------------
+		\(A = \dfrac{\pi}{4}\,d^2\)
+	
+		% ---------------------------
+		% Einfacher Mathemodus OHNE Nummerierung
+		% equation* ist zu bevorzugen bei Verwendung von amsmath
+		% ---------------------------
+		Satz des Pythagoras
+		\begin{displaymath}
+			c^2 = a^2 + b^3
+		\end{displaymath}
+		
+		% ---------------------------
+		% Kurzschreibweise von displaymath
+		% Beachte l2tabu
+		% ftp://ftp.dante.de/tex-archive/info/german/l2tabu/l2tabu.pdf
+		% ---------------------------
+		Alternativ:
+		\[
+			a = \sqrt{c^2 - b^2}
+		\]
+		
+	\section{Formeln mit Nummerierung}
+		% ---------------------------
+		% Mathemodus MIT Nummerierung
+		% ---------------------------
+		Volumenänderungsarbeit
+		\begin{equation}
+			W_{V12} = - \int_{V_1}^{V_2} p \cdot dV + W_{r12}
+		\end{equation}
+		
+		\begin{equation}
+			W_{V12} = - \int\limits_{V_1}^{V_2} p \cdot dV + W_{r12}
+		\end{equation}
+	
+	\section{Geordnete Formeln}
+		
+		% ---------------------------
+		% Mathemodus mit Ausrichtung
+		% ---------------------------
+		% Ausrichtung erfolgt mithilfe des Trenners "&"
+		% Zeilenende durch \\ kennzeichnen
+		% Keine Nummerierung durch \nonumber\\
+		% ---------------------------
+		\begin{align}
+			t_u &= \sin(x) + \cos^2(x)\\
+			\sigma_{out} &= \dfrac{1}{2} \exp^{b_2 - b_1}\nonumber\\
+			\varrho_{12} &= \left(\dfrac{a \cdot b}{\pi}\right) \cdot \sqrt[4]{\pi}
+		\end{align}

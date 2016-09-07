@@ -1,0 +1,112 @@
+% !TeX encoding = utf8
+% !TeX program = pdflatex
+% !TeX spellcheck = de-DE
+
+% ===========================
+%   WICHTIGER HINWEIS!
+% ===========================
+% g-brief ist veraltet und sollte durch
+% g-brief2 oder scrlttr2 ersetzt werden!
+% http://ftp.fau.de/ctan/macros/latex/contrib/g-brief/g-brief.pdf
+% ===========================
+
+% ---------------------------
+% Template: g-brief
+% Author:   Felix Faltin
+% Email:    felix@clickandtry.de
+% Version:  1.0
+% Date:     23.04.2016
+% ---------------------------
+\documentclass[12pt, ngerman]{g-brief}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{blindtext}
+
+% ---------------------------
+% Angaben des Absender
+% ---------------------------
+\Name{Max Mustermann}
+\Strasse{Musterstraße 1}
+\Ort{D-13456 Musterstadt}
+\Telefon{0123/456-7890}
+\Telefax{0123/456-7890}
+\HTTP{http://www.mustermann.com}
+\EMail{max@mustermann.com}
+
+% ---------------------------
+% Retouradresse
+% ---------------------------
+% Retouradresse steht über dem Empfänger
+% leer lassen, wenn mit Adresse identisch
+% ---------------------------
+\RetourAdresse{Max Mustermann, Postfach 54321, 12346 Musterstadt}
+
+% ---------------------------
+% Kontoverbindung
+% ---------------------------
+% Klammern können beliebig leer gelassen werden,
+% wenn keine Angabe gemacht werden soll.
+% ---------------------------
+\Bank{Musterbank Max}
+\BLZ{10020030}
+\Konto{1020304050}
+
+% ---------------------------
+% Angaben des Empfängers
+% ---------------------------
+\Postvermerk{EINSCHREIBEN}                   % Einschreiben, etc.
+\Adresse{%
+    Mickey Mouse\\
+    Donaldweg\\
+    98765 Entenhausen
+}
+
+\Datum{\today}
+
+% ---------------------------
+% Geschäftszeile
+% ---------------------------
+% Geschäftszeile wird nur gesetzt,
+% wenn \IhrZeichen, \IhrSchreiben oder
+% \MeinZeichen angegeben ist
+% ---------------------------
+\IhrZeichen{Mu/5.23}
+\IhrSchreiben{29. Dezember 1803}
+\MeinZeichen{Mm/9.42}
+\unserzeichen
+
+% ---------------------------
+% Angabe von Markierungen
+% ---------------------------
+% Auskommentieren, wenn nicht gewüscht
+% ---------------------------
+%\unserzeichen
+\lochermarke
+\faltmarken
+\fenstermarken
+\trennlinien
+%\klassisch
+
+% ---------------------------
+% Formelle Angaben
+% ---------------------------
+\Betreff{Artikel zum Blindtext}
+\Anrede{Sehr geehrter Herr Blindtext,}
+\Gruss{Mit freundlichen Grüßen}{0cm}           % Absatz zwischen Brieftext und Grussformel
+\Unterschrift{Max Mustermann}
+
+% ---------------------------
+% Anlage und Verteiler
+% ---------------------------
+\Anlagen{}
+\Verteiler{}
+
+% ---------------------------
+% Inhalt des Briefes
+% ---------------------------
+\begin{document}
+    \begin{g-brief}
+        \blindtext
+    \end{g-brief}
+\end{document}

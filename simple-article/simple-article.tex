@@ -1,0 +1,99 @@
+% !TeX encoding = utf8
+% !TeX program = pdflatex
+% !TeX spellcheck = de-DE
+
+% ---------------------------
+% Template: Simple article
+% Author:   Felix Faltin
+% Email:    felix@clickandtry.de
+% Version:  1.0
+% Date:     23.04.2016
+% ---------------------------
+
+% ---------------------------
+% Dokumentklasse
+% Mögliche Optionen:
+%   - parskip = half; full, none
+%   - Schriftgröße (11pt [default], 12pt)
+%   - Papiergröße (a4paper, a5paper)
+%   - zweiseitig (twoside, oneside [default])
+% ---------------------------
+
+%\documentclass[12pt, a4paper]{article}
+\documentclass[12pt, a4paper]{scrartcl}         % Komascript (vorzugsweise zu verwenden)
+
+% ---------------------------
+% Einbinden von Packages
+% ---------------------------
+% Wichtiger Hinweis für die Kodierung:
+%   Inputenc gibt die Kodierung des Dokoments an,
+%   die muss mit der Kodierung der Datei übereinstimmen.
+%
+% ---------------------------
+% Mögliche Einstellungen
+% ---------------------------
+%   Editor      |   inputenc
+% --------------|------------
+%   UTF-8       |   utf8        (vorzugsweise verwenden)
+%   ISO-8859-1  |   ansinew
+%   windows-1252|   ansinew
+%   Apple       |   applemac    (von mir nicht geprüft)
+%   Linux       |   latin1
+% ---------------------------
+
+\usepackage[utf8]{inputenc}             % Kodierung des Dokuments
+\usepackage[T1]{fontenc}                % Schriftzeichen, Umlaute, Silbentrennung
+\usepackage[ngerman]{babel}             % Neue deutsche Rechtschreibung
+\usepackage{lmodern}                    % Moderne Schriftart
+
+% ---------------------------
+% Fakulative Packages
+% Zum Aktivieren Kommentar entfernen
+%
+%   --- WICHTIG ---
+% Reihenfolge der Pakete muss beachtet werden,
+% da es ansonsten zu "Option clash" kommen kann!
+% ---------------------------
+
+%\usepackage[table]{xcolor}             % Farbige Darstellungen (Vor tabularx und booktabs)
+%\usepackage{tabularx}                  % Verwendung der Tabularx-Umgebung für Tabellen
+%\usepackage{booktabs}                  % Übersichtlicher Darstellung von Tabellen
+%\usepackage{multirow}                  % Zusammenfassen von Tabellenzeilen/ -reihen
+%\usepackage{graphicx}                  % Einbinden von Bildern
+%\usepackage{setspace}                  % Ein-, anderhalb- oder zweizeilig
+%\usepackage{pdfpages}                  % PDF Seiten einbinden
+\usepackage{blindtext}                  % Ermöglichst Benutzung von Blindtext
+%\usepackage{hyperref}                  % Ermöglicht Verlinkungen (Immer als letztes!)
+
+% ---------------------------
+% Beginn des Dokuments
+% ---------------------------
+
+\begin{document}
+
+    % ---------------------------
+    % Einbinden eines Titelblattes (Standardformatierung)
+    % ---------------------------
+
+    \title{Das hier ist unser Titel}                % Titel der Arbeit
+    \subtitle{Ich bin der Untertitel}               % Untertitel
+    \author{Autor}                                  % Autor
+    \publishers{Herausgeber}                        % Herausgeber
+    \date{\today}                                   % Datum
+    %    \extratitle{Ich bin eine Schutzseite}      % Schutztitel
+    %    \dedication{Ich bin der Beste}             % Widmung
+
+    % ---------------------------
+    % Erzeugen von Verzeichnissen
+    % ---------------------------
+
+    \maketitle                                      % Titelseite erzeugen
+%    \tableofcontents                               % Inhaltsverzeichnis
+%    \listoffigures                                 % Bilderverzeichnis
+%    \listoftables                                  % Tabellenverzeichnis
+
+    % ---------------------------
+    % Inhalt einfügen
+    % ---------------------------
+    \blinddocument
+\end{document}
