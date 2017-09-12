@@ -7,7 +7,7 @@
 % Author:   Felix Faltin
 % Version:  1.0
 % ---------------------------
-    
+
 % ---------------------------
 % Dokumentklasse
 % ---------------------------
@@ -32,7 +32,7 @@
 % Wichtiger Hinweis für die Kodierung:
 %   Inputenc gibt die Kodierung des Dokoments an,
 %   die muss mit der Kodierung der Datei übereinstimmen.
-% 
+%
 %   Mögliche Einstellungen:
 %   Editor      |   inputenc
 %   ------------|------------
@@ -56,9 +56,9 @@
 % Fakulative Packages
 % ---------------------------
 % Zum Aktivieren Kommentar entfernen
-% 
+%
 %        ---WICHTIG---
-% Reihenfolge von einigen Pakete muss beachtet werden, 
+% Reihenfolge von einigen Pakete muss beachtet werden,
 % da es ansonsten zu "Option clash" kommen kann!
 % ---------------------------
 
@@ -118,9 +118,17 @@
 % --- Quellenangabe
 \usepackage[autostyle]{csquotes}                % Anführungszeichen für deutsche Sprache und Quellenverzeichnis
 \usepackage[
-    square,
-    numbers
-]{natbib}                                       % Zitierstile (NUR für bibtex!)
+    backend      = biber,                       % bibtex oder biber [default]
+    style        = numeric-comp,                % Zitierstil
+    sorting      = nty,                         % Sortierung (Name, Titel, Jahr)
+    natbib       = true,                        % Kompatibilität mit Natbib-Bibliothek
+    block        = space,                       % kleiner horizontaler Platz zwischen den Feldern
+    backrefstyle = three+,                      % fasst Seiten zusammen, z.B. S. 2f, 6ff, 7-10
+    date         = short,                       % Datumsformat
+    bibwarn      = true,                        %
+    texencoding  = auto,                        % auto-detect the input encoding
+    bibencoding  = auto                         % (auto (equal to tex), <encoding>)
+]{biblatex}
 
 
 % --- Zusatzpakete ---
@@ -195,6 +203,8 @@
 % --- Zeilenabstand ---
 \onehalfspacing                                 % \singlespacing, \onehalfspacing, \doublespacing (Nur mit setspaces!)
 
+\addbibresource{./bib/referenzen.bib}
+
 
 % ---------------------------
 % Beginn des Dokuments
@@ -238,7 +248,7 @@
     % ---------------------------
     % Aufzählungen einfügen
     % ---------------------------
-    \include{./inc/aufzeahlung.inc} 
+    \include{./inc/aufzeahlung.inc}
 
     % ---------------------------
     % Bilder einfügen
@@ -258,6 +268,5 @@
     % ---------------------------
     % Quellenverzeichnis
     % ---------------------------
-    \bibliographystyle{abbrvnat}
-    \bibliography{./bib/referenzen}                 % BibTeX
+    \printbibliography[title=Literaturverzeichnis]  % BiBLaTeX, Biber
 \end{document}

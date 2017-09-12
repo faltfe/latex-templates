@@ -149,10 +149,6 @@
     texencoding  = auto,                        % auto-detect the input encoding
     bibencoding  = auto                         % (auto (equal to tex), <encoding>)
 ]{biblatex}
-%\usepackage[
-%    square,
-%    numbers
-%]{natbib}                                      % Zitierstile (NUR für bibtex!)
 
 % --- Zusatzpakete ---
 \usepackage{blindtext}                          % Ermöglichst Benutzung von Blindtext
@@ -243,8 +239,7 @@
 % ---------------------------
 % Quellenverzeichnis
 % ---------------------------
-\addbibresource{./bib/referenzen.bib}           % BiBLaTeX, biber (Konfiguration im TeXstudio beachten)
-%\bibliography{bib/referenzen}                  % Veraltet (bibtex)
+\addbibresource{./bib/referenzen.bib}           % BiBLaTeX, biber
 
 % ---------------------------
 % Beginn des Dokuments
@@ -310,8 +305,5 @@
     % ---------------------------
     % Quellenverzeichnis
     % ---------------------------
-%    \bibliographystyle{abbrvnat}
-%    \bibliography{./bib/referenzen}                % BibTeX
-
     \printbibliography[title=Literaturverzeichnis]  % BiBLaTeX, Biber
 \end{document}
