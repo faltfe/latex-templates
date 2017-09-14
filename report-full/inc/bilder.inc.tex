@@ -2,56 +2,56 @@
 % Darstellung von Bildern
 % ---------------------------
 % Package graphicx notwenig
-% 
+%
 % HINWEIS:
-% Bei Verwendung von Gleitumgebungen kann es anfangs zu 
+% Bei Verwendung von Gleitumgebungen kann es anfangs zu
 % ungewollten Darstellungen kommen!
 % Es sollte IMMER erst der Text vollständig eingefügt werden,
 % und zum Schluss die Formatierung bearbeitet werden!
 % ---------------------------
 \chapter{Bilder}
-	
-	\section{Grundbefehl}
-		% ---------------------------
-		% Grundbefehl zum Einbinden von 
-		% ---------------------------
-		% \includegraphics[options]{filename} ohne Endung (.jpg, .png)
-		% Optionen:	width 	- Breitenangabe (cm, mm, % oder \linewidth)
-		%			height	- Höhenangabe (automatisch bei width-Angabe)
-		%			angle	- Drehung hinzufügen
-		% ---------------------------
-		\includegraphics{texstudio-encoding}
-	
-	\section{Gleitumgebung für Bilder}
-		% ---------------------------
-		% Bilder in einer Gleitumgebung
-		% ---------------------------
-		% Gleitumgebung für Bilder - figure
-		% Optionen h - here, t - top, b - bottom
-		% ---------------------------
-		\begin{figure}[htb]									% Gleitumgebung
-			\centering										% Bild zentrieren
-			\includegraphics[width=.75\linewidth]{texstudio-encoding}
-			\caption{Bildunterschrift mit Gleitumgebung}	% Bildunterschrift einfügen
-			\label{fig:figure}								% Verweis einfügen
-		\end{figure}
-		
-		\begin{figure}[htb]
-			\centering
-			\includegraphics[width=.5\linewidth, angle=45]{texstudio-encoding}
-			\caption{Bildunterschrift mit Gleitumgebung}
-			\label{fig:figure2}
-		\end{figure}
-		
-		\clearpage											% Einfügen aller Grafiken
-	
-	\section{Bild ohne Gleitumgebung}
-		% ---------------------------
-		% Bilder ohne Gleitumgebung
-		% ---------------------------
-		% Bildunterschrift nur mit Gleitumgebung
-		% Alternativ: \captionof{float type}{heading}
-		% mit Package caption
-		% ---------------------------
-		\includegraphics[width=.95\textwidth]{texstudio-config}
-		\captionof{figure}{Bildunterschrift ohne Gleitumgebung}
+
+    \section{Grundbefehl}
+        % ---------------------------
+        % Grundbefehl zum Einbinden von
+        % ---------------------------
+        % \includegraphics[options]{filename} ohne Endung (.jpg, .png)
+        % Optionen:    width     - Breitenangabe (cm, mm, % oder \linewidth)
+        %            height    - Höhenangabe (automatisch bei width-Angabe)
+        %            angle    - Drehung hinzufügen
+        % ---------------------------
+        \includegraphics{example-image-a}
+
+    \section{Gleitumgebung für Bilder}
+        % ---------------------------
+        % Bilder in einer Gleitumgebung
+        % ---------------------------
+        % Gleitumgebung für Bilder - figure
+        % Optionen h - here, t - top, b - bottom
+        % ---------------------------
+        \begin{figure}[htb]                                    % Gleitumgebung
+            \centering                                        % Bild zentrieren
+            \includegraphics[width=.75\linewidth]{example-image-a}
+            \caption{Bildunterschrift mit Gleitumgebung}    % Bildunterschrift einfügen
+            \label{fig:figure}                                % Verweis einfügen
+        \end{figure}
+
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[width=.5\linewidth, angle=45]{example-image-a}
+            \caption{Bildunterschrift mit Gleitumgebung}
+            \label{fig:figure2}
+        \end{figure}
+
+        \clearpage                                            % Einfügen aller Grafiken
+
+    \section{Bild ohne Gleitumgebung}
+        % ---------------------------
+        % Bilder ohne Gleitumgebung
+        % ---------------------------
+        % Bildunterschrift nur mit Gleitumgebung
+        % Alternativ: \captionof{float type}{heading}
+        % mit Package caption
+        % ---------------------------
+        \includegraphics[width=.95\textwidth]{example-image-a}
+        \captionof{figure}{Bildunterschrift ohne Gleitumgebung}
